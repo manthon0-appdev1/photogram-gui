@@ -6,5 +6,7 @@ get("/users/:path_username", {:controller => "users", :action => "show"})
 get("/photos", {:controller => "photos", :action => "index"})
 get("/photos/:path_photo", {:controller => "photos", :action => "show"})
 get("/delete_photo/:path_id", {:controller => "photos", :action => "delete"})
-
+get("/insert_photo", {:controller => "photos", :action => "insert"})
+get("/update_photo/:modify_id", {:controller => "photos", :action => "update"})
+get("/add_user", {:controller => "users", :action => "add"})
 end

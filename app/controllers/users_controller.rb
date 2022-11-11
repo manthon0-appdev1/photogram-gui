@@ -18,4 +18,13 @@ input_un = params.fetch("path_username")
   end
 end
 
+def add
+  #Parameters: {"input_user"=>"matt4"}
+  new_username = params.fetch("input_user")
+  added_user = User.new
+  added_user.username = new_username
+  added_user.save
+  redirect_to("/users/" + added_user.username.to_s)
+end
+
 end
