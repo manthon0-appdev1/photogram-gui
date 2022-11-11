@@ -27,4 +27,16 @@ def add
   redirect_to("/users/" + added_user.username.to_s)
 end
 
+def edit
+  #Parameters: {"input_user"=>"matt55", "modify_id"=>"114"}
+  new_username = params.fetch("input_user")
+  user_id_to_modify = params.fetch("modify_id")
+  user_to_modify = User.where({:id => user_id_to_modify}).first
+  user_to_modify.username = new_username
+  user_to_modify.save
+  #render({:template => "user_templates/edit.html.erb"})
+  redirect_to("/users/" + user_to_modify.username.to_s)
+
+end
+
 end

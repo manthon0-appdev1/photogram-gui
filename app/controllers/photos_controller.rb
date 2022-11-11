@@ -52,4 +52,16 @@ the_photo.save
 redirect_to("/photos/" + the_photo.id.to_s)
 end
 
+def add_comment
+  #Parameters: {"input_photo_id"=>"633", "input_author_id"=>"117", "input_body"=>"awesome!\r\n", "modify_id"=>"633"}
+  this_comment = Comment.new
+  this_comment.photo_id = params.fetch("input_photo_id")
+  this_comment.body = params.fetch("input_body")
+  this_comment.author_id = params.fetch("input_author_id")
+  #this_comment.commenter = User.where({:id => commenter_id}).first
+  this_comment.save
+  #render({:template => "photo_templates/add_comment.html.erb"})
+  redirect_to("/photos/" + this_comment.photo_id.to_s)
+end
+
 end

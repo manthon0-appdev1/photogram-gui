@@ -2,7 +2,14 @@
 <dt>ID</dt>
 <dd><%=@the_user.id%></dd>
 <dt>Edit user</dt>
-<dd></dd>
+<dd>
+    <form action="/edit_user/<%=@the_user.id%>">
+      <label for="Username">Username</label>
+      <input id="Username" type="text" name="input_user" value=<%=@the_user.username%> placeholder="Enter a username...">
+
+      <button>Update user</button>
+    </form>
+</dd>
 </dl>
 
 <h2>Own photos (<%=@the_user.own_photos.count%>)</h2>

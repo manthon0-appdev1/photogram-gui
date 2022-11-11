@@ -54,9 +54,9 @@
 
 <%@the_photo.comments.each do |a_comment|%>
   <tr>
-    <td>
+    #<td>
       <%=a_comment.commenter.username%>
-    </td>
+    </#td>
 
     <td>
       <%=a_comment.body%>
@@ -72,9 +72,9 @@
 
 <h3>Add a new comment</h3>
 
-<form action="/insert_comment_record">
+<form action="/insert_comment_record/<%=@the_photo.id%>">
   <label for="browser_photo_id">Photo ID</label>
-  <input id="browser_photo_id" type="text" value="777" name="input_photo_id">
+  <input id="browser_photo_id" type="text" value=<%=@the_photo.id%> name="input_photo_id">
 
   <label for="browser_author_id">Author ID</label>
   <input id="browser_author_id" type="text" name="input_author_id">
